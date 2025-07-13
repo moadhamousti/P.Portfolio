@@ -6,7 +6,6 @@ import { Label } from "./label";
 import { Input } from "./input";
 import { Textarea } from "./textarea";
 import { Button } from "./stateful-button";
-import { FaCheckCircle } from "react-icons/fa";
 import { IoMailOpenOutline } from "react-icons/io5";
 
 interface SendMessageFormProps {
