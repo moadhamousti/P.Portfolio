@@ -39,3 +39,5 @@ next-env.d.ts
 .vscode
 dist
 /lib/generated/prisma
+
+.vercel
