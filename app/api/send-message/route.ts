@@ -1,7 +1,10 @@
-import { prisma } from "@/lib/prisma"; // ✅ Use the shared instance
+// app/api/send-message/route.ts
+
+import { PrismaClient } from "@/lib/generated/prisma";
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
+const prisma = new PrismaClient();
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
@@ -36,7 +39,7 @@ Email: ${email}
 Role: ${role}
 Message:
 ${message}
-      `,
+  `,
       html: `
     <div style="font-family:Arial,sans-serif;padding:20px;">
       <h2 style="color:#0ea5e9;">New Message Received</h2>
@@ -48,7 +51,7 @@ ${message}
         ${message.replace(/\n/g, "<br>")}
       </blockquote>
     </div>
-      `,
+  `,
     });
 
     return NextResponse.json({ success: true, data: saved });
